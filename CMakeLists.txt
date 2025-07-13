@@ -26,25 +26,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Compiler options (platform-specific)
-if(MSVC)
-  set(CMAKE_CXX_FLAGS_RELEASE "/MD")
-  set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
-  add_compile_options(/MP)
-  target_compile_options(${APP_NAME}
-  PRIVATE 
-    /W4
-    /EHsc
-  )
-else()
-  target_compile_options(${APP_NAME}
-    PRIVATE
-      -Wall
-      -Wextra
-      -fexceptions
-  )
-endif()
-
 # Executable
 add_executable(${APP_NAME})
 add_subdirectory(src)
@@ -83,7 +64,24 @@ else()
   message(STATUS "Unknown platform.")
 endif()
 
-
+# Compiler options (platform-specific)
+if(MSVC)
+  set(CMAKE_CXX_FLAGS_RELEASE "/MD")
+  set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
+  add_compile_options(/MP)
+  target_compile_options(${APP_NAME}
+  PRIVATE 
+    /W4
+    /EHsc
+  )
+else()
+  target_compile_options(${APP_NAME}
+    PRIVATE
+      -Wall
+      -Wextra
+      -fexceptions
+  )
+endif()
 
 # Set executable name
 set_target_properties(${APP_NAME} PROPERTIES OUTPUT_NAME ${APP_NAME})
