@@ -3,7 +3,7 @@ Only draw heart with matplotlibcpp.
 
 ## How to use
 1. Install Python, CMake and Ninja
-    - This project is intened to build with Python3.*, CMake and Ninja,  
+    - This project is intended to build with Python3.*, CMake and Ninja,  
       so please download them from the public web-site.
 
 2. Execute setup.bat(or setup.sh)
