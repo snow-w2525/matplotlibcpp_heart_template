@@ -42,7 +42,7 @@ echo "Python_LIBRARIES: $Python_LIBRARIES"
 echo "Python_INCLUDE_DIRS: $Python_INCLUDE_DIRS"
 echo "NumPy_INCLUDE_DIRS: $NumPy_INCLUDE_DIRS"
 echo "Python_VERSION: $Python_VERSION"
-dcho "Python_VERSION_WITH_DOT: $Python_VERSION_WITH_DOT"
+echo "Python_VERSION_WITH_DOT: $Python_VERSION_WITH_DOT"
 
 cmake -S . -B "$BUILD_PATH" \
     -G "Ninja" \
