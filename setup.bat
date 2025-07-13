@@ -55,6 +55,8 @@ echo Python_INCLUDE_DIRS=%Python_INCLUDE_DIRS%
 echo NumPy_INCLUDE_DIRS=%NumPy_INCLUDE_DIRS%
 echo Python_VERSION=%Python_VERSION%
 
+pause
+
 rem Run CMake with Ninja generator
 cmake -S . -B "%BUILD_PATH%" ^
     -G "Ninja" ^
