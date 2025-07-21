@@ -7,16 +7,20 @@ namespace plt = matplotlibcpp;
 
 
 static void append_python_packages() {
+    // path to executable python
     std::string s_pthon_exe_path = PYTHON_EXE_PATH;
-    std::string s_pthon_package_dir = PYTHON_PACKAGE_DIR;
     std::wstring ws_pthon_exe_path(s_pthon_exe_path.begin(), s_pthon_exe_path.end());
     const wchar_t* python_exe_path = ws_pthon_exe_path.c_str();
+
+    // path to packages
+    std::string s_pthon_package_dir = PYTHON_PACKAGE_DIR;
+    std::string s_append_python_package_dir
+        = "sys.path.append('" + s_pthon_package_dir + "')";
+
 
     Py_SetProgramName(python_exe_path);
     Py_Initialize();
     PyRun_SimpleString("import sys");
-    std::string s_append_python_package_dir
-        = "sys.path.append('" + s_pthon_package_dir + "')";
     PyRun_SimpleString(s_append_python_package_dir.c_str());
 }
 
